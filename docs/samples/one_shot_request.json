@@ -1,0 +1,6 @@
+{
+  "subjects": ["Math (Calculus, Algebra)", "Physics (Thermodynamics)"],
+  "days": 5,
+  "hoursPerDay": 3,
+  "weakAreas": ["Calculus", "Thermodynamics"]
+}

@@ -96,3 +96,11 @@ The system ensures that students stay on track with their preparation while mana
 * Group study planner (collaborative timetables).
 * AI-powered doubt resolution (chatbot).
 * Mobile app version for on-the-go learning.
+
+
+#
+
+## One-Shot Prompting Demo
+- Docs: `docs/one_shot_prompting.md`
+- API demo: POST `/api/one-shot-timetable` with body: `docs/samples/one_shot_request.json`
+- Server: `node server.js`
