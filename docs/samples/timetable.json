@@ -1,0 +1,37 @@
+[
+  {
+    "day": 1,
+    "date": "2025-08-29",
+    "blocks": [
+      {"topic": "Calculus – Limits", "hours": 1.5},
+      {"topic": "Thermodynamics – Laws", "hours": 1.5}
+    ],
+    "total_hours": 3,
+    "focus": "Weak topics",
+    "notes": "End with 10 MCQs"
+  },
+  {
+    "day": 2,
+    "date": "2025-08-30",
+    "blocks": [
+      {"topic": "Algebra – Quadratics", "hours": 1},
+      {"topic": "Optics – Reflection", "hours": 1},
+      {"topic": "Calculus – Derivatives", "hours": 1}
+    ],
+    "total_hours": 3,
+    "focus": "Mix + spaced revision",
+    "notes": "Quiz review"
+  },
+  {
+    "day": 3,
+    "date": "2025-08-31",
+    "blocks": [
+      {"topic": "Thermodynamics – Heat Engines", "hours": 1.5},
+      {"topic": "Calculus – Integration", "hours": 1.5}
+    ],
+    "total_hours": 3,
+    "focus": "Weak topics reinforcement",
+    "notes": "End with practice problems"
+  }
+]
+
