@@ -1,0 +1,23 @@
+[
+  {
+    "question": "What is the derivative of sin(x)?",
+    "options": ["cos(x)", "-cos(x)", "sin(x)", "-sin(x)"],
+    "answer": "cos(x)",
+    "explanation": "The derivative of sin(x) with respect to x is cos(x).",
+    "difficulty": "easy"
+  },
+  {
+    "question": "Which law states that energy cannot be created or destroyed?",
+    "options": ["Newton's First Law", "First Law of Thermodynamics", "Law of Optics", "Law of Inertia"],
+    "answer": "First Law of Thermodynamics",
+    "explanation": "It defines conservation of energy in thermodynamic processes.",
+    "difficulty": "medium"
+  },
+  {
+    "question": "In a quadratic equation ax² + bx + c = 0, the discriminant is?",
+    "options": ["b² - 4ac", "b² + 4ac", "2a", "ac - b²"],
+    "answer": "b² - 4ac",
+    "explanation": "Discriminant = b² - 4ac, used to determine the nature of roots.",
+    "difficulty": "easy"
+  }
+]
