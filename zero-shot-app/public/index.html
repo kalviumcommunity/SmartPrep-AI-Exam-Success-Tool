@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zero Shot Prompting Demo</title>
+</head>
+<body>
+  <h1>Zero Shot Prompting Demo</h1>
+
+  <select id="type">
+    <option value="system">System Prompt</option>
+    <option value="user">User Prompt</option>
+    <option value="zeroshot">Zero Shot Prompt</option>
+  </select>
+  <br><br>
+
+  <input type="text" id="message" placeholder="Enter your message/task" />
+  <input type="text" id="input" placeholder="(For Zero-Shot: enter input)" />
+  <button onclick="sendPrompt()">Send</button>
+
+  <h2>Response:</h2>
+  <pre id="response"></pre>
+
+  <script>
+    async function sendPrompt() {
+      const type = document.getElementById("type").value;
+      const message = document.getElementById("message").value;
+      const input = document.getElementById("input").value;
+
+      const res = await fetch("/api/prompt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type, message, task: message, input }),
+      });
+
+      const data = await res.json();
+      document.getElementById("response").innerText = data.reply || data.error;
+    }
+  </script>
+</body>
+</html>
