@@ -1,5 +1,7 @@
 import express from "express";
 import { saveSubmission } from "../utils/chainOfThoughtPrompting.js";
+import dynamicPromptingPrompt from "../prompts/dynamicPrompting.js";
+import tokensPrompt from "../prompts/tokensPrompt.js";
 
 const router = express.Router();
 
@@ -21,7 +23,15 @@ router.post("/dynamic-prompting", (req, res) => {
 
   console.log("New Dynamic Prompting Submission:", { conceptArea, concept, artifactUrl, explanationVideoUrl });
 
-  res.json({ message: "Dynamic prompting submission received successfully", data: { conceptArea, concept, artifactUrl, explanationVideoUrl } });
+  //Tokens and tokenization
+  let prompt;
+  if (concept === "Tokens and tokenization") {
+    prompt = tokensPrompt(conceptArea, concept, artifactUrl, explanationVideoUrl);
+  } else {
+    prompt = dynamicPromptingPrompt(conceptArea, concept, artifactUrl, explanationVideoUrl);
+  }
+
+  res.json({ message: "Dynamic prompting submission received successfully", data: { conceptArea, concept, artifactUrl, explanationVideoUrl }, prompt });
 });
 
 export default router;
