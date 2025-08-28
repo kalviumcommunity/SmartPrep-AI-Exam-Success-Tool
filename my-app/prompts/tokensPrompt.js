@@ -1,4 +1,4 @@
-// Tokens and tokenization prompt template for SmartPrep – AI Exam Success Tool
+// Tokens and tokenization prompt template for SmartPrep – AI Exam Success Tool - GenAI
 export default function tokensPrompt(conceptArea, concept, artifactUrl, explanationVideoUrl) {
   return `
 You are submitting a new concept under the area: ${conceptArea}.

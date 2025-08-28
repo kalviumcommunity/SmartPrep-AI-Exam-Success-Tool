@@ -23,7 +23,7 @@ router.post("/dynamic-prompting", (req, res) => {
 
   console.log("New Dynamic Prompting Submission:", { conceptArea, concept, artifactUrl, explanationVideoUrl });
 
-  // Use specific prompt template for "Tokens and tokenization"
+  //Tokens and tokenization
   let prompt;
   if (concept === "Tokens and tokenization") {
     prompt = tokensPrompt(conceptArea, concept, artifactUrl, explanationVideoUrl);
