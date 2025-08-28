@@ -2,6 +2,7 @@ import express from "express";
 import { saveSubmission } from "../utils/chainOfThoughtPrompting.js";
 import dynamicPromptingPrompt from "../prompts/dynamicPrompting.js";
 import tokensPrompt from "../prompts/tokensPrompt.js";
+import evaluationPrompt from "../prompts/evaluationPrompt.js";
 
 const router = express.Router();
 
@@ -23,10 +24,12 @@ router.post("/dynamic-prompting", (req, res) => {
 
   console.log("New Dynamic Prompting Submission:", { conceptArea, concept, artifactUrl, explanationVideoUrl });
 
-  //Tokens and tokenization
+  // Use specific prompt template for known concepts
   let prompt;
   if (concept === "Tokens and tokenization") {
     prompt = tokensPrompt(conceptArea, concept, artifactUrl, explanationVideoUrl);
+  } else if (concept === "Evaluation Dataset and Testing Framework") {
+    prompt = evaluationPrompt(conceptArea, concept, artifactUrl, explanationVideoUrl);
   } else {
     prompt = dynamicPromptingPrompt(conceptArea, concept, artifactUrl, explanationVideoUrl);
   }
