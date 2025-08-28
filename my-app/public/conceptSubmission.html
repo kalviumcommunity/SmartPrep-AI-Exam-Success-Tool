@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Concept Submission - SmartPrep AI Exam Success Tool</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    form { max-width: 600px; margin: auto; }
+    label { display: block; margin-top: 1rem; font-weight: bold; }
+    input, textarea { width: 100%; padding: 0.5rem; margin-top: 0.25rem; }
+    button { margin-top: 1rem; padding: 0.75rem 1.5rem; font-size: 1rem; }
+    .message { margin-top: 1rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Submit a New Concept</h1>
+  <form id="conceptForm">
+    <label for="conceptArea">Concept Area</label>
+    <input type="text" id="conceptArea" name="conceptArea" required />
+
+    <label for="concept">Concept</label>
+    <textarea id="concept" name="concept" rows="3" required></textarea>
+
+    <label for="artifactUrl">Artifact URL</label>
+    <input type="url" id="artifactUrl" name="artifactUrl" required />
+
+    <label for="explanationVideoUrl">Explanation Video URL</label>
+    <input type="url" id="explanationVideoUrl" name="explanationVideoUrl" required />
+
+    <button type="submit">Submit Concept</button>
+  </form>
+  <div class="message" id="message"></div>
+
+  <script>
+    const form = document.getElementById('conceptForm');
+    const messageDiv = document.getElementById('message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      messageDiv.textContent = '';
+
+      const formData = {
+        conceptArea: form.conceptArea.value.trim(),
+        concept: form.concept.value.trim(),
+        artifactUrl: form.artifactUrl.value.trim(),
+        explanationVideoUrl: form.explanationVideoUrl.value.trim()
+      };
+
+      try {
+        const response = await fetch('/api/dynamic-prompting', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          messageDiv.style.color = 'green';
+          messageDiv.textContent = 'Concept submitted successfully!';
+          form.reset();
+        } else {
+          messageDiv.style.color = 'red';
+          messageDiv.textContent = result.error || 'Failed to submit concept.';
+        }
+      } catch (err) {
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = 'Error submitting concept: ' + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
