@@ -2,7 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
+
 import oneShotDemo from "./routes/oneShotDemo.js";
+import multiShotDemo from "./routes/multiShotDemo.js";
 
 
 dotenv.config();
@@ -27,7 +29,9 @@ app.post("/api/prompt", async (req, res) => {
   res.json({ reply: `Got a ${type} prompt: ${message} with input: ${input}` });
 });
 
+
 app.use("/api", oneShotDemo);
+app.use("/api", multiShotDemo);
 
 // optional simple health route
 app.get("/health", (req, res) => res.json({ status: "ok" }));
