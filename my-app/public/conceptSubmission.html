@@ -16,11 +16,21 @@
 <body>
   <h1>Submit a New Concept</h1>
   <form id="conceptForm">
-    <label for="conceptArea">Concept Area</label>
-    <input type="text" id="conceptArea" name="conceptArea" required />
+    <label for="conceptArea">Select a Concept Area *</label>
+    <select id="conceptArea" name="conceptArea" required>
+      <option value="">-- Select Concept Area --</option>
+      <option value="Developing AI Agents using GenAI">Developing AI Agents using GenAI</option>
+      <option value="Other Concept Area 1">Other Concept Area 1</option>
+      <option value="Other Concept Area 2">Other Concept Area 2</option>
+    </select>
 
-    <label for="concept">Concept</label>
-    <textarea id="concept" name="concept" rows="3" required></textarea>
+    <label for="concept">Select a Concept *</label>
+    <select id="concept" name="concept" required>
+      <option value="">-- Select Concept --</option>
+      <option value="Tokens and tokenization">Tokens and tokenization</option>
+      <option value="Other Concept 1">Other Concept 1</option>
+      <option value="Other Concept 2">Other Concept 2</option>
+    </select>
 
     <label for="artifactUrl">Artifact URL</label>
     <input type="url" id="artifactUrl" name="artifactUrl" required />
