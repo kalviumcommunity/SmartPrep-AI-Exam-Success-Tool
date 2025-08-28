@@ -5,7 +5,7 @@ import cors from "cors";
 
 import oneShotDemo from "./routes/oneShotDemo.js";
 import multiShotDemo from "./routes/multiShotDemo.js"; // Multi shot route
-
+import dynamicPrompting from "./routes/dynamicPrompting.js";
 
 dotenv.config();
 console.log("Loaded API Key?", process.env.OPENAI_API_KEY ? "Yes" : "No");
@@ -30,8 +30,10 @@ app.post("/api/prompt", async (req, res) => {
 });
 
 
+
 app.use("/api", oneShotDemo);
 app.use("/api", multiShotDemo);
+app.use("/api", dynamicPrompting);
 
 // optional simple health route
 app.get("/health", (req, res) => res.json({ status: "ok" }));
