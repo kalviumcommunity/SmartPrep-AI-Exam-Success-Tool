@@ -1,3 +1,4 @@
+// Multi shot prompt
 export default function multiShotPrompt(task, input) {
   return `
 Perform the following task with multiple examples:

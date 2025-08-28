@@ -4,7 +4,7 @@ import cors from "cors";
 
 
 import oneShotDemo from "./routes/oneShotDemo.js";
-import multiShotDemo from "./routes/multiShotDemo.js";
+import multiShotDemo from "./routes/multiShotDemo.js"; // Multi shot route
 
 
 dotenv.config();
